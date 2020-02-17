@@ -6,7 +6,7 @@
 #define  ATO_TIME_COUNT 60000	// 2 minutes
 //#define  ATO_TIME_COUNT 146484	// 5 minutes
 
-#define BLINK_INCREMENT 2
+#define BLINK_INCREMENT 10
 #define MIN_BLINK_RATE	250	// 1 ON/OFF cycle a second
 #define MAX_BLINK_RATE	4	// 60 ON/OFF cycles a second
 
@@ -25,7 +25,7 @@ typedef enum {
 typedef struct tagLEDSTATE
 {
 	WORD		_dwATOTimeCount;
-	BYTE		_bIntensityLevel;
+	WORD		_bIntensityLevel;
 	BYTE		_state;					// 0: OFF, 1:Pulse
 	BOOL		_fONPhase;				// in the ON part of the blinking cycle
 	BYTE		_bBlinkRate;			// blink frequency
@@ -41,10 +41,10 @@ void LED_Toggle(void);	// ON if was OFF otherwise OFF
 void LED_Pulse(void);	// ON for sometime then auto off to save power
 void LED_Blink(void);	// Blinking light
 inline BOOL LED_GetState(void) {return g_LED._state;}
-void LED_Dim(void);
-void LED_UnDim(void);
-void LED_BlinkRateInc(void);
-void LED_BlinkRateDec(void);
+BOOL LED_Dim(void);
+BOOL LED_UnDim(void);
+BOOL LED_BlinkRateInc(void);
+BOOL LED_BlinkRateDec(void);
 void LED_OnTick(void);
 
 #endif //__LED__

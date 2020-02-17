@@ -35,11 +35,15 @@ void ShellCommand_LED(char* arg1, char* arg2) {
 	
 	if(arg1[0] == 'i') {
 		if(arg2[0] == '+') {
-			LED_UnDim();
+			if(LED_UnDim()) {
+				USART_WriteString("!WMaximum reached\n");
+			}
 			return;
 		}
 		if(arg2[0] == '-') {
-			LED_Dim();
+			if(LED_Dim()) {
+				USART_WriteString("!WMinimum reached\n");
+			}
 			return;
 		}
 		
@@ -49,11 +53,15 @@ void ShellCommand_LED(char* arg1, char* arg2) {
 	
 	if(arg1[0] == 'f') {
 		if(arg2[0] == '+') {
-			LED_BlinkRateInc();
+			if(LED_BlinkRateInc()) {
+				USART_WriteString("!WMaximum reached\n");
+			}
 			return;
 		}
 		if(arg2[0] == '-') {
-			LED_BlinkRateDec();
+			if(LED_BlinkRateDec()) {
+				USART_WriteString("!WMinimum reached\n");
+			}
 			return;
 		}
 		

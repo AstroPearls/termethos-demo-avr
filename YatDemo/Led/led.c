@@ -42,6 +42,54 @@ void LED_Blink(void) {
 	g_LED._fONPhase = TRUE;
 }
 
+BOOL LED_Dim(void) {
+	BOOL minReached = TRUE;
+	if(g_LED._bIntensityLevel > 0) {
+		g_LED._bIntensityLevel--;
+		minReached = FALSE;
+	}
+
+	// there are cases above where intensity level didn't change and hence we don't need to 
+	Timer_SetOCR(pgm_read_byte(&g_LogScale[g_LED._bIntensityLevel]));
+	
+	return minReached;
+}
+
+BOOL LED_UnDim(void) {
+	BOOL maxReached = TRUE;
+	if(g_LED._bIntensityLevel < 18) {
+		g_LED._bIntensityLevel++;
+		maxReached = FALSE;
+	}
+
+	// there are cases above where intensity level didn't change and hence we don't need to
+	Timer_SetOCR(pgm_read_byte(&g_LogScale[g_LED._bIntensityLevel]));
+	
+	return maxReached;
+}
+
+BOOL LED_BlinkRateInc(void) {
+	WORD orig = g_LED._bBlinkRate;
+	g_LED._bBlinkRate -= BLINK_INCREMENT;
+	if(g_LED._bBlinkRate < MAX_BLINK_RATE || g_LED._bBlinkRate > orig) {// overflow
+		g_LED._bBlinkRate = MAX_BLINK_RATE;
+		return TRUE;
+	}
+	
+	return FALSE;
+}
+
+BOOL LED_BlinkRateDec(void) {
+	WORD orig = g_LED._bBlinkRate;
+	g_LED._bBlinkRate += BLINK_INCREMENT;
+	if(g_LED._bBlinkRate > MIN_BLINK_RATE || g_LED._bBlinkRate < orig) {// underflow
+		g_LED._bBlinkRate = MIN_BLINK_RATE;
+		return TRUE;
+	}
+	
+	return FALSE;
+}
+
 void LED_OnTick(void) {
 	// Auto turn off logic, if in pulse mode
 	if(LED_GetState() == PULSE) {
@@ -60,42 +108,10 @@ void LED_OnTick(void) {
 			if(g_LED._fONPhase) {
 				Timer_DisconnectA();
 				g_LED._fONPhase = FALSE;
-			} else {
+				} else {
 				Timer_ConnectA();
 				g_LED._fONPhase = TRUE;
 			}
 		}
-	}
-}
-
-void LED_Dim(void) {
-	if(g_LED._bIntensityLevel < 18) {
-		g_LED._bIntensityLevel++;
-	}
-
-	// there are cases above where intensity level didn't change and hence we don't need to 
-	Timer_SetOCR(pgm_read_byte(&g_LogScale[g_LED._bIntensityLevel]));
-}
-
-void LED_UnDim(void) {
-	if(g_LED._bIntensityLevel > 0) {
-		g_LED._bIntensityLevel--;
-	}
-
-	// there are cases above where intensity level didn't change and hence we don't need to
-	Timer_SetOCR(pgm_read_byte(&g_LogScale[g_LED._bIntensityLevel]));
-}
-
-void LED_BlinkRateInc(void) {
-	g_LED._bBlinkRate -= BLINK_INCREMENT;
-	if(g_LED._bBlinkRate < MAX_BLINK_RATE) {// overflow
-		g_LED._bBlinkRate = MAX_BLINK_RATE;
-	}
-}
-
-void LED_BlinkRateDec(void) {
-	g_LED._bBlinkRate += BLINK_INCREMENT;
-	if(g_LED._bBlinkRate > MIN_BLINK_RATE) {// underflow
-		g_LED._bBlinkRate = MIN_BLINK_RATE;
 	}
 }

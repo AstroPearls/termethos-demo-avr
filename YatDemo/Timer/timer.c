@@ -20,7 +20,7 @@ void Timer_Initialize(void) {
 }
 
 void Timer_ConnectA(void) {
-	TCCR0A |= (_BV(COM0A1) | _BV(COM0A0));
+	TCCR0A |= (_BV(COM0A1) /*| _BV(COM0A0)*/);
 }
 
 void Timer_DisconnectA(void) {
