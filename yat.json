@@ -1,0 +1,74 @@
+{
+    "activeConnection": "YatDemo",
+    "commands": [
+      {
+        "command": "led on",
+        "description": "Turn LED on",
+        "hotKey": "space",
+        "name": "LED ON"
+      },
+      {
+        "command": "led off",
+        "description": "Turn LED off",
+        "hotKey": "shift+space",
+        "name": "LED OFF"
+      },
+      {
+        "command": "led i +",
+        "description": "Increase LED Intensity",
+        "hotKey": "alt++",
+        "name": "Brighter"
+      },
+      {
+        "command": "led i -",
+        "description": "Decrease LED Intensity",
+        "hotKey": "alt+-",
+        "name": "Dimmer"
+      },
+      {
+        "command": "led f +",
+        "description": "Increase blinking rate",
+        "hotKey": "shift++",
+        "name": "Blink faster"
+      },
+      {
+        "command": "led f -",
+        "description": "Decrease blinking rate",
+        "hotKey": "shift+-",
+        "name": "Blink slower"
+      },
+      {
+        "command": "led b",
+        "description": "Enter blink mode",
+        "hotKey": "b",
+        "name": "Blink Mode"
+      },
+      {
+        "command": "led s",
+        "description": "Enter steady mode",
+        "hotKey": "n",
+        "name": "Steady Mode"
+      }
+    ],
+    "connections": [
+      {
+        "bitsPerSecond": 115200,
+        "dataBits": 8,
+        "flowControl": "None",
+        "name": "Default",
+        "parity": "None",
+        "portName": "COM4",
+        "stopBits": "1"
+      },
+      {
+        "bitsPerSecond": 38400,
+        "dataBits": 8,
+        "flowControl": "None",
+        "name": "YatDemo",
+        "parity": "None",
+        "portName": "COM5",
+        "stopBits": "1"
+      }
+    ]
+  }
+  
