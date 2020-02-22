@@ -13,7 +13,7 @@
     <OutputFileExtension>.elf</OutputFileExtension>
     <OutputDirectory>$(MSBuildProjectDirectory)\$(Configuration)</OutputDirectory>
     <AssemblyName>Telrad</AssemblyName>
-    <Name>YatDemo</Name>
+    <Name>TermethosDemo</Name>
     <RootNamespace>Telrad</RootNamespace>
     <ToolchainFlavour>Native</ToolchainFlavour>
     <KeepTimersRunning>true</KeepTimersRunning>
@@ -207,7 +207,7 @@
     <Compile Include="USART\usart.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="YatDemo.c">
+    <Compile Include="TermethosDemo.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Timer\timer.c">

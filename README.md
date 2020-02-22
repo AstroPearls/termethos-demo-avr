@@ -1,10 +1,10 @@
-# yat-demo-avr
-An ATMega168 code to demo Yat (https://www.justyat.com) smart terminal
+# Termethos-demo-avr
+An ATMega168 code to demo Termethos (https://www.termethos.com) smart terminal
 
-**NOTE**: Use yat.json for best experience. Remember to backup your original configs.
+**NOTE**: Use termethos.json for best experience. Remember to backup your original configs.
 
 
-![](yatdemo.png)
+![](termethosdemo.png)
 
 Simple breadboard circuit:
 

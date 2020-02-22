@@ -1,5 +1,5 @@
 {
-    "activeConnection": "YatDemo",
+    "activeConnection": "TermethosDemo",
     "commands": [
       {
         "command": "led on",
@@ -64,7 +64,7 @@
         "bitsPerSecond": 38400,
         "dataBits": 8,
         "flowControl": "None",
-        "name": "YatDemo",
+        "name": "TermethosDemo",
         "parity": "None",
         "portName": "COM5",
         "stopBits": "1"

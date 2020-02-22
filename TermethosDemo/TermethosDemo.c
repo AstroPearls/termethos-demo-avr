@@ -1,10 +1,3 @@
-/*
- * YatDemo.c
- *
- * Created: 8/1/2014 4:14:20 AM
- *  Author: Mohamed
- */ 
-
 #include "common.h"
 #include "System\system.h"
 #include "Led\led.h"
@@ -20,7 +13,7 @@ int main(void)
 	Shell_Initialize();
 	USART_Initialize();
 	USART_WriteString("\x1b[2J\n");							// Clear Screen sequence followed by one empty line
-	USART_WriteString("!#Welcome to YatDemo system\n");		// Welcome/Branding header
+	USART_WriteString("!#Welcome to TermethosDemo system\n");		// Welcome/Branding header
 
 	// Disable interrupts
 	cli();
@@ -31,7 +24,7 @@ int main(void)
 	// Enable interrupts
 	sei();
 
-	USART_WriteString("!IYatDemo system initialized\n");
+	USART_WriteString("!ITermethosDemo system initialized\n");
 
 	// wait fro shell commands...forever!
 	Shell_EnterLoop();
