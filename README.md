@@ -13,7 +13,7 @@ An ATMega168 code to demo Termethos (https://www.termethos.com) smart terminal
  - LED
  - Atmel at AVR ISP MK2 AVR Programmer (https://www.amazon.com/gp/product/B07L3DT86R)
  - SH-U09C2 USB to TTL Adapter Built-in FTDI FT232RL IC for Debugging and Programming (https://www.amazon.com/gp/product/B07TXVRQ7V)
- - Optional: power source and regulator (I use the ISP as power source in this circuit. It is connected to external powered SUB hub!)
+ - Optional: power source and regulator (I use the ISP as power source in this circuit. It is connected to external powered USB hub!)
 
 ## Software
 - Ateml Studio 7.0
