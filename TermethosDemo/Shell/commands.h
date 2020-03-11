@@ -31,4 +31,6 @@ void ShellCommand_LED(char* arg1, char* arg2);
 
 void ShellCommand_Help(char* arg1, char* arg2);
 
+void ShellCommand_Burst(char* arg1, char* arg2);
+
 #endif /* COMMANDS_H_ */

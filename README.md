@@ -15,10 +15,13 @@ An ATMega168 code to demo Termethos (https://www.termethos.com) smart terminal
  - SH-U09C2 USB to TTL Adapter Built-in FTDI FT232RL IC for Debugging and Programming (https://www.amazon.com/gp/product/B07TXVRQ7V)
  - Optional: power source and regulator (I use the ISP as power source in this circuit. It is connected to external powered USB hub!)
 
+Simple breadboard circuit:
+
+![](breadboard.jpg)
+
 ## Software
 - Ateml Studio 7.0
 
-Simple breadboard circuit:
+## Processor Fuses config
 
-
-![](breadboard.jpg)
+![](fuses.png)

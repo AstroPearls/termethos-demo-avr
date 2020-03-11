@@ -4,13 +4,13 @@
 
 void USART_Initialize(void)
 {
-	// Baud rate
-	const WORD baudRate = 12;
+	// Baud rate: 115.2K with external crystal of 11.059MHz
+	const WORD baudRate = 5;
 	UBRR0H = (BYTE)(baudRate >> 8);
 	UBRR0L = (BYTE)(baudRate);
-
+	
 	// Enable Rx, Tx, and receive complete interrupt
-	UCSR0B = _BV(RXEN0) | _BV(TXEN0) | _BV(RXCIE0);
+	UCSR0B = /*_BV(UCSZ01) | */_BV(RXEN0) | _BV(TXEN0) | _BV(RXCIE0);
 	
 	// 8 data bits, no parity (default), 1 stop bit (default)
 	UCSR0C =  _BV(UCSZ01) | _BV(UCSZ00);

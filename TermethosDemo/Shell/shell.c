@@ -101,9 +101,9 @@ BOOL Shell_FindToken(char** ppBuffer) {
 }
 
 void Shell_HandleCommand(char* command, char* arg1, char* arg2) {
-	// TODO: replace 2 with compile time sizeof
-	for(BYTE i = 0; i < 2; i++) {
-		if(strcmp(g_ShellCommands[i]->name, command) ==0) {
+	// TODO: replace 3 with compile time sizeof
+	for(BYTE i = 0; i < 3; i++) {
+		if(strcmp(g_ShellCommands[i]->name, command) == 0) {
 			g_ShellCommands[i]->commandFn(arg1, arg2);
 			Shell_Reset();
 			return;
